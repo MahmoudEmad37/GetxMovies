@@ -39,8 +39,8 @@ class AppProvider extends GetConnect {
     log('Network status changed: $networkStatus');
     if (networkStatus) {
       Get.snackbar(
-        LocalKeys.kNetworkError.tr,
-        LocalKeys.kNetworkErrorMessage.tr,
+        LocalKeys.kNetworkSuccess.tr,
+        LocalKeys.kNetworkSuccessMessage.tr,
         backgroundColor: AppColors.green,
         colorText: AppColors.white,
         duration: const Duration(

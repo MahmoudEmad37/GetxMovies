@@ -9,7 +9,7 @@ import 'package:getx_movie_app/data/models/all_movies_response_model.dart';
 import 'package:getx_movie_app/data/providers/app_provider.dart';
 
 class HomeProvider extends AppProvider {
-  Future<AllMoviesResponseModel?> getTopRatedMovies() async {
+  Future<AllMoviesResponseModel?> getTopRatedMovies({int page = 1}) async {
     Response? response;
     do {
       response = await handleNetworkError(get(
@@ -20,7 +20,7 @@ class HomeProvider extends AppProvider {
         query: {
           RequestConstants.kApiKey: AppConstants.kApiKey,
           RequestConstants.kLanguage: AppConstants.kLanguage,
-          RequestConstants.kPage: "1",
+          RequestConstants.kPage: page.toString(),
         },
       ));
       log(response.toString());
