@@ -13,7 +13,7 @@ class HomeProvider extends AppProvider {
   HomeProvider({GetHttpClient? getDefaultHttpClient})
       : getHttpClient = getDefaultHttpClient ?? GetHttpClient();
 
-  Future<AllMoviesResponseModel?> getTopRatedMovies() async {
+  Future<AllMoviesResponseModel?> getTopRatedMovies({int page = 1}) async {
     Response? response;
     do {
       response = await handleNetworkError(getHttpClient!.get(
@@ -24,7 +24,7 @@ class HomeProvider extends AppProvider {
         query: {
           RequestConstants.kApiKey: AppConstants.kApiKey,
           RequestConstants.kLanguage: AppConstants.kLanguage,
-          RequestConstants.kPage: "1",
+          RequestConstants.kPage: page.toString(),
         },
       ));
       log(response.toString());

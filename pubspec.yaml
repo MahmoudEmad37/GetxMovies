@@ -43,7 +43,6 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   liquid_pull_to_refresh: ^3.0.1
-  path_provider: ^2.0.15 
   
 
 dev_dependencies:

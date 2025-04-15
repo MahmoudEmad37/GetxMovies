@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_movie_app/data/models/movie_model.dart';
 import 'package:getx_movie_app/data/providers/home_provider.dart';
@@ -10,30 +11,49 @@ class HomeController extends GetxController {
   final homeProvider = Get.find<HomeProvider>();
   final localStorageService = Get.find<LocalStorageService>();
   final RxBool networkStatus = Get.find<NetworkService>().hasConnection;
+  int page = 1;
 
-  List<MovieModel>? topRatedMovies = [];
+  List<MovieModel>? topRatedMovies = <MovieModel>[].obs;
 
   final RxBool isLoading = RxBool(false);
+  final RxBool hasMore = RxBool(true);
+  final ScrollController scrollController = ScrollController();
 
   @override
   void onInit() async {
     super.onInit();
+    scrollController.addListener(() {
+      if (scrollController.position.pixels ==
+          scrollController.position.maxScrollExtent) {
+        getTopRatedMovies();
+      }
+    });
     await getAllData();
   }
 
-  Future<void> getAllData() async {
+  getAllData() async {
+    page = 1;
     await getTopRatedMovies();
-    // update();
+    log('getTopRatedMovies');
+    update();
   }
 
   Future getTopRatedMovies() async {
     isLoading.value = true;
     if (networkStatus.value) {
       try {
-        topRatedMovies =
-            (await homeProvider.getTopRatedMovies())?.topRatedMovies;
-        if (topRatedMovies != null && topRatedMovies!.isNotEmpty) {
-          await localStorageService.saveMovies(topRatedMovies!);
+        if (hasMore.value) {
+          List<MovieModel>? newTopMovies =
+              (await homeProvider.getTopRatedMovies(page: page))
+                  ?.topRatedMovies;
+
+          if (newTopMovies != null && newTopMovies.isNotEmpty) {
+            topRatedMovies?.addAll(newTopMovies);
+            await localStorageService.saveMovies(topRatedMovies!);
+            page++;
+          } else {
+            hasMore(false);
+          }
         }
         isLoading.value = false;
       } catch (error) {

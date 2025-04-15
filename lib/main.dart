@@ -17,8 +17,6 @@ import 'package:hive_flutter/adapters.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Hive.initFlutter();
-  Hive.registerAdapter(MovieModelAdapter());
 
   WidgetsBinding.instance.addPostFrameCallback(
     (_) {
@@ -88,7 +86,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
-void initServices() {
+void initServices() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(MovieModelAdapter());
   Get.put(NetworkService());
   Get.put(LocalStorageService());
 }

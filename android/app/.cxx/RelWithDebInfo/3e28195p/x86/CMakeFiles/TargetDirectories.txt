@@ -1,0 +1,2 @@
+C:/Users/MDLABS/VSProjects/getx_movie_app/android/app/.cxx/RelWithDebInfo/3e28195p/x86/CMakeFiles/edit_cache.dir
+C:/Users/MDLABS/VSProjects/getx_movie_app/android/app/.cxx/RelWithDebInfo/3e28195p/x86/CMakeFiles/rebuild_cache.dir
