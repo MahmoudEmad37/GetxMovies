@@ -20,4 +20,15 @@ class AllMoviesResponseModel {
     totalPages = json['total_pages'];
     totalResults = json['total_results'];
   }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['page'] = page;
+    if (topRatedMovies != null) {
+      data['results'] = topRatedMovies!.map((v) => v.toJson()).toList();
+    }
+    data['total_pages'] = totalPages;
+    data['total_results'] = totalResults;
+    return data;
+  }
 }

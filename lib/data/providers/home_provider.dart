@@ -9,10 +9,14 @@ import 'package:getx_movie_app/data/models/all_movies_response_model.dart';
 import 'package:getx_movie_app/data/providers/app_provider.dart';
 
 class HomeProvider extends AppProvider {
+  GetHttpClient? getHttpClient;
+  HomeProvider({GetHttpClient? getDefaultHttpClient})
+      : getHttpClient = getDefaultHttpClient ?? GetHttpClient();
+
   Future<AllMoviesResponseModel?> getTopRatedMovies() async {
     Response? response;
     do {
-      response = await handleNetworkError(get(
+      response = await handleNetworkError(getHttpClient!.get(
         Endpoints.kGetTopRatedMovie,
         headers: {
           'Accept': RequestConstants.kApplicationJson,

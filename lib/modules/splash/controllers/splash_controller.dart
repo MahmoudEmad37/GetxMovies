@@ -10,6 +10,6 @@ class SplashController extends GetxController {
         seconds: 5,
       ),
     );
-    Get.offAllNamed(Routes.home);
+    await Get.offAllNamed(Routes.home);
   }
 }

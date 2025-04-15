@@ -21,9 +21,9 @@ class HomeController extends GetxController {
     await getAllData();
   }
 
-  getAllData() async {
+  Future<void> getAllData() async {
     await getTopRatedMovies();
-    update();
+    // update();
   }
 
   Future getTopRatedMovies() async {
@@ -33,7 +33,7 @@ class HomeController extends GetxController {
         topRatedMovies =
             (await homeProvider.getTopRatedMovies())?.topRatedMovies;
         if (topRatedMovies != null && topRatedMovies!.isNotEmpty) {
-          localStorageService.saveMovies(topRatedMovies!);
+          await localStorageService.saveMovies(topRatedMovies!);
         }
         isLoading.value = false;
       } catch (error) {

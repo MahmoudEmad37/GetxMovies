@@ -32,6 +32,7 @@ dependencies:
   bot_toast: ^4.1.3
   connectivity_plus: ^6.1.3
   cupertino_icons: ^1.0.8
+  dev: ^1.0.0
   device_preview: ^1.2.0
   flutter:
     sdk: flutter
@@ -40,16 +41,20 @@ dependencies:
   flutter_screenutil: ^5.9.3
   get: ^4.7.2
   hive: ^2.2.3
-  liquid_pull_to_refresh: ^3.0.1
   hive_flutter: ^1.1.0
+  liquid_pull_to_refresh: ^3.0.1
+  path_provider: ^2.0.15 
+  
 
 dev_dependencies:
   build_runner: ^2.4.15
   flutter_gen_runner: ^5.10.0
-  hive_generator: ^2.0.1
   flutter_lints: ^4.0.0
+  mocktail: ^1.0.4
+  test: ^1.25.15
   flutter_test:
     sdk: flutter
+  hive_generator: ^2.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
