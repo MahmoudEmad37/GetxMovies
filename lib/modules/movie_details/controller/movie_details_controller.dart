@@ -20,21 +20,36 @@ class MovieDetailsController extends GetxController
   }
 
   Future<void> getMovieDetails() async {
-    change(null, status: RxStatus.loading());
+    change(
+      null,
+      status: RxStatus.loading(),
+    );
     if (networkStatus.value) {
       try {
         final MovieDetailsModel? movieDetails =
             await movieDetailsProvider.getMovieDetails(id: movieId);
         if (movieDetails != null) {
-          change(movieDetails, status: RxStatus.success());
+          change(
+            movieDetails,
+            status: RxStatus.success(),
+          );
         } else {
-          change(null, status: RxStatus.error('No data found'));
+          change(
+            null,
+            status: RxStatus.error('No data found'),
+          );
         }
       } catch (error) {
-        change(null, status: RxStatus.error('Error fetching data'));
+        change(
+          null,
+          status: RxStatus.error('Error fetching data'),
+        );
       }
     } else {
-      change(null, status: RxStatus.error('No internet connection'));
+      change(
+        null,
+        status: RxStatus.error('No internet connection'),
+      );
     }
   }
 }

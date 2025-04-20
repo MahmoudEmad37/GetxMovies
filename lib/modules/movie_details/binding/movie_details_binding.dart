@@ -5,7 +5,11 @@ import 'package:getx_movie_app/modules/movie_details/controller/movie_details_co
 class MovieDetailsBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => MovieDetailsProvider());
-    Get.lazyPut(() => MovieDetailsController());
+    Get.lazyPut(
+      () => MovieDetailsProvider(),
+    );
+    Get.lazyPut(
+      () => MovieDetailsController(),
+    );
   }
 }

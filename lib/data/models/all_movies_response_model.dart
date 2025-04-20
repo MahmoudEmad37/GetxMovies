@@ -6,8 +6,12 @@ class AllMoviesResponseModel {
   int? totalPages;
   int? totalResults;
 
-  AllMoviesResponseModel(
-      {this.page, this.topRatedMovies, this.totalPages, this.totalResults});
+  AllMoviesResponseModel({
+    this.page,
+    this.topRatedMovies,
+    this.totalPages,
+    this.totalResults,
+  });
 
   AllMoviesResponseModel.fromJson(Map<String, dynamic> json) {
     page = json['page'];

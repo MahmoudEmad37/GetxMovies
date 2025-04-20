@@ -1,7 +1,7 @@
 include: package:flutter_lints/flutter.yaml
 
 analyzer: 
-  errors:
+  # errors:
     # prefer_const_constructors: error
     # avoid_print: error
     # prefer_const_literals_to_create_immutables: error
@@ -14,7 +14,7 @@ analyzer:
   
 linter:
   rules:
-    
+    require_trailing_commas: true
     prefer_const_constructors: true
     always_declare_return_types: true
     prefer_final_fields: true

@@ -18,7 +18,9 @@ class LocalStorageService extends GetxService {
   }
 
   List<MovieModel> getMovies() {
-    return _box.get(LocalStorageConstants.kMovieBox,
-        defaultValue: [])!.cast<MovieModel>();
+    return _box.get(
+      LocalStorageConstants.kMovieBox,
+      defaultValue: [],
+    )!.cast<MovieModel>();
   }
 }

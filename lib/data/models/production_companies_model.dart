@@ -4,8 +4,12 @@ class ProductionCompaniesModel {
   String? name;
   String? originCountry;
 
-  ProductionCompaniesModel(
-      {this.id, this.logoPath, this.name, this.originCountry});
+  ProductionCompaniesModel({
+    this.id,
+    this.logoPath,
+    this.name,
+    this.originCountry,
+  });
 
   ProductionCompaniesModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];

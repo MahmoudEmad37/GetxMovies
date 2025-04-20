@@ -22,16 +22,18 @@ class HomeController extends GetxController {
   @override
   void onInit() async {
     super.onInit();
-    scrollController.addListener(() {
-      if (scrollController.position.pixels ==
-          scrollController.position.maxScrollExtent) {
-        getTopRatedMovies();
-      }
-    });
+    scrollController.addListener(
+      () {
+        if (scrollController.position.pixels ==
+            scrollController.position.maxScrollExtent) {
+          getTopRatedMovies();
+        }
+      },
+    );
     await getAllData();
   }
 
-  getAllData() async {
+  Future<void> getAllData() async {
     page = 1;
     await getTopRatedMovies();
     log('getTopRatedMovies');
@@ -43,7 +45,7 @@ class HomeController extends GetxController {
     if (networkStatus.value) {
       try {
         if (hasMore.value) {
-          List<MovieModel>? newTopMovies =
+          final List<MovieModel>? newTopMovies =
               (await homeProvider.getTopRatedMovies(page: page))
                   ?.topRatedMovies;
 

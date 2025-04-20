@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
 import 'package:getx_movie_app/core/values/localization/local_keys.dart';
-import 'package:getx_movie_app/data/models/movie_model.dart';
+
 import 'package:getx_movie_app/modules/home/controller/home_controller.dart';
 import 'package:getx_movie_app/modules/home/views/widgets/home_appbar.dart';
 import 'package:mocktail/mocktail.dart';
@@ -15,58 +15,58 @@ class HomeControllerMock extends GetxController
     implements HomeController {}
 
 void main() async {
-  final topRatedMovies = [
-    MovieModel(
-      adult: false,
-      backdropPath: '/path1.jpg',
-      genreIds: [28, 12],
-      id: 101,
-      originalLanguage: 'en',
-      originalTitle: 'The First Movie',
-      overview: 'A thrilling action movie with suspense and drama.',
-      popularity: 123.45,
-      posterPath: '/poster1.jpg',
-      releaseDate: '2023-09-01',
-      title: 'First Movie',
-      video: false,
-      voteAverage: 7.8,
-      voteCount: 1023,
-    ),
-    MovieModel(
-      adult: false,
-      backdropPath: '/path2.jpg',
-      genreIds: [35, 18],
-      id: 102,
-      originalLanguage: 'en',
-      originalTitle: 'The Second Movie',
-      overview: 'A heartwarming comedy-drama that will make you laugh and cry.',
-      popularity: 98.76,
-      posterPath: '/poster2.jpg',
-      releaseDate: '2024-01-15',
-      title: 'Second Movie',
-      video: false,
-      voteAverage: 8.2,
-      voteCount: 875,
-    ),
-    MovieModel(
-      adult: true,
-      backdropPath: '/path3.jpg',
-      genreIds: [27, 53],
-      id: 103,
-      originalLanguage: 'en',
-      originalTitle: 'The Third Movie',
-      overview:
-          'A dark and intense horror-thriller that will keep you on edge.',
-      popularity: 110.00,
-      posterPath: '/poster3.jpg',
-      releaseDate: '2025-03-22',
-      title: 'Third Movie',
-      video: true,
-      voteAverage: 6.5,
-      voteCount: 560,
-    ),
-  ];
-  setUp(() async {});
+  // final topRatedMovies = [
+  //   MovieModel(
+  //     adult: false,
+  //     backdropPath: '/path1.jpg',
+  //     genreIds: [28, 12],
+  //     id: 101,
+  //     originalLanguage: 'en',
+  //     originalTitle: 'The First Movie',
+  //     overview: 'A thrilling action movie with suspense and drama.',
+  //     popularity: 123.45,
+  //     posterPath: '/poster1.jpg',
+  //     releaseDate: '2023-09-01',
+  //     title: 'First Movie',
+  //     video: false,
+  //     voteAverage: 7.8,
+  //     voteCount: 1023,
+  //   ),
+  //   MovieModel(
+  //     adult: false,
+  //     backdropPath: '/path2.jpg',
+  //     genreIds: [35, 18],
+  //     id: 102,
+  //     originalLanguage: 'en',
+  //     originalTitle: 'The Second Movie',
+  //     overview: 'A heartwarming comedy-drama that will make you laugh and cry.',
+  //     popularity: 98.76,
+  //     posterPath: '/poster2.jpg',
+  //     releaseDate: '2024-01-15',
+  //     title: 'Second Movie',
+  //     video: false,
+  //     voteAverage: 8.2,
+  //     voteCount: 875,
+  //   ),
+  //   MovieModel(
+  //     adult: true,
+  //     backdropPath: '/path3.jpg',
+  //     genreIds: [27, 53],
+  //     id: 103,
+  //     originalLanguage: 'en',
+  //     originalTitle: 'The Third Movie',
+  //     overview:
+  //         'A dark and intense horror-thriller that will keep you on edge.',
+  //     popularity: 110.00,
+  //     posterPath: '/poster3.jpg',
+  //     releaseDate: '2025-03-22',
+  //     title: 'Third Movie',
+  //     video: true,
+  //     voteAverage: 6.5,
+  //     voteCount: 560,
+  //   ),
+  // ];
+  // setUp(() async {});
 
   group(
     'HomeView',

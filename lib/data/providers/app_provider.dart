@@ -61,7 +61,8 @@ class AppProvider extends GetConnect {
   }
 
   Future<Response<dynamic>> handleNetworkError(
-      Future<Response<dynamic>> response) async {
+    Future<Response<dynamic>> response,
+  ) async {
     Response<dynamic>? result;
 
     try {

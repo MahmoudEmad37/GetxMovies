@@ -12,16 +12,18 @@ class MovieDetailsProvider extends AppProvider {
   Future<MovieDetailsModel?> getMovieDetails({required int id}) async {
     Response? response;
     do {
-      response = await handleNetworkError(get(
-        '${Endpoints.kGetMovieDetails}/$id',
-        headers: {
-          'Accept': RequestConstants.kApplicationJson,
-        },
-        query: {
-          RequestConstants.kApiKey: AppConstants.kApiKey,
-          RequestConstants.kLanguage: AppConstants.kLanguage,
-        },
-      ));
+      response = await handleNetworkError(
+        get(
+          '${Endpoints.kGetMovieDetails}/$id',
+          headers: {
+            'Accept': RequestConstants.kApplicationJson,
+          },
+          query: {
+            RequestConstants.kApiKey: AppConstants.kApiKey,
+            RequestConstants.kLanguage: AppConstants.kLanguage,
+          },
+        ),
+      );
       log(response.toString());
     } while (await shouldRetry());
     if (!response.isOk) {

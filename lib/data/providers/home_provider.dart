@@ -16,17 +16,19 @@ class HomeProvider extends AppProvider {
   Future<AllMoviesResponseModel?> getTopRatedMovies({int page = 1}) async {
     Response? response;
     do {
-      response = await handleNetworkError(getHttpClient!.get(
-        Endpoints.kGetTopRatedMovie,
-        headers: {
-          'Accept': RequestConstants.kApplicationJson,
-        },
-        query: {
-          RequestConstants.kApiKey: AppConstants.kApiKey,
-          RequestConstants.kLanguage: AppConstants.kLanguage,
-          RequestConstants.kPage: page.toString(),
-        },
-      ));
+      response = await handleNetworkError(
+        getHttpClient!.get(
+          Endpoints.kGetTopRatedMovie,
+          headers: {
+            'Accept': RequestConstants.kApplicationJson,
+          },
+          query: {
+            RequestConstants.kApiKey: AppConstants.kApiKey,
+            RequestConstants.kLanguage: AppConstants.kLanguage,
+            RequestConstants.kPage: page.toString(),
+          },
+        ),
+      );
       log(response.toString());
     } while (await shouldRetry());
     if (!response.isOk) {

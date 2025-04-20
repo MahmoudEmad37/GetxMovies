@@ -28,6 +28,6 @@ class AppPages {
       name: Routes.movieDetails,
       page: () => const MovieDetailsView(),
       binding: MovieDetailsBinding(),
-    )
+    ),
   ];
 }

@@ -5,7 +5,11 @@ import 'package:getx_movie_app/modules/home/controller/home_controller.dart';
 class HomeBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => HomeProvider());
-    Get.lazyPut(() => HomeController());
+    Get.lazyPut(
+      () => HomeProvider(),
+    );
+    Get.lazyPut(
+      () => HomeController(),
+    );
   }
 }

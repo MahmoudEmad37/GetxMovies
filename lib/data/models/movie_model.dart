@@ -46,21 +46,22 @@ class MovieModel extends HiveObject {
   @HiveField(13)
   int? voteCount;
 
-  MovieModel(
-      {this.adult,
-      this.backdropPath,
-      this.genreIds,
-      this.id,
-      this.originalLanguage,
-      this.originalTitle,
-      this.overview,
-      this.popularity,
-      this.posterPath,
-      this.releaseDate,
-      this.title,
-      this.video,
-      this.voteAverage,
-      this.voteCount});
+  MovieModel({
+    this.adult,
+    this.backdropPath,
+    this.genreIds,
+    this.id,
+    this.originalLanguage,
+    this.originalTitle,
+    this.overview,
+    this.popularity,
+    this.posterPath,
+    this.releaseDate,
+    this.title,
+    this.video,
+    this.voteAverage,
+    this.voteCount,
+  });
 
   MovieModel.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
